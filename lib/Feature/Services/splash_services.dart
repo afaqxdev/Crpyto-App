@@ -7,7 +7,9 @@ import 'package:flutter/material.dart';
 
 class SplashServices {
   void Splash(BuildContext context) {
-    Timer(const Duration(seconds: 3),
-        () => Navigator.pushReplacementNamed(context, RoutesName.homeScreen));
+    Timer(
+        const Duration(seconds: 3),
+        () =>
+            Navigator.pushReplacementNamed(context, RoutesName.bordingScreen1));
   }
 }

@@ -5,8 +5,10 @@ import 'package:cryptotracker/Feature/View/Home/home_page.dart';
 import 'package:cryptotracker/Core/Providers/market_provider.dart';
 import 'package:cryptotracker/Core/Providers/theme_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
+import 'Core/Resources/Languages/languages.dart';
 import 'Core/Routes/routes.dart';
 
 void main() async {
@@ -34,10 +36,12 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: Consumer<ThemeProvider>(builder: (contex, themeProvider, child) {
-        return MaterialApp(
+        return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           themeMode: themeProvider.themeMode,
           theme: lightTheme,
+          translations: Languages(),
+          locale: const Locale('en', 'Us'),
           darkTheme: darhTheme,
           initialRoute: RoutesName.splashScreen,
           onGenerateRoute: Routes.generateRoute,
