@@ -13,7 +13,7 @@ class Routes {
         );
       case RoutesName.bordingScreen1:
         return MaterialPageRoute(
-          builder: (context) => const BoardingFirst(),
+          builder: (context) => BoardingFirst(),
         );
       case RoutesName.homeScreen:
         return MaterialPageRoute(builder: (context) => const HomePage());

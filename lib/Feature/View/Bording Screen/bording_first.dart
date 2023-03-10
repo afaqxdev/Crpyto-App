@@ -1,14 +1,47 @@
 // ignore: prefer_const_constructors
+// ignore_for_file: unused_local_variable, must_be_immutable
+
 import 'package:cryptotracker/Core/Resources/Component/round_button.dart';
 import 'package:cryptotracker/Core/Resources/color/app_color.dart';
 import 'package:cryptotracker/Core/Resources/images/images_link.dart';
+import 'package:cryptotracker/Feature/View/Bording%20Screen/second_onbording.dart';
+import 'package:cryptotracker/Feature/View/Bording%20Screen/third_onbording.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../Core/Resources/Component/text_widget.dart';
+import 'first_onbording.dart';
 
-class BoardingFirst extends StatelessWidget {
-  const BoardingFirst({super.key});
+class BoardingFirst extends StatefulWidget {
+  BoardingFirst({super.key});
+
+  @override
+  State<BoardingFirst> createState() => _BoardingFirstState();
+}
+
+class _BoardingFirstState extends State<BoardingFirst> {
+  // List<Widget> myList = List.generate(3, (index) {
+  //   return Row(
+  //     children: const [
+  //       CircleAvatar(
+  //         radius: 10,
+  //         backgroundColor: AppColor.greyColor,
+  //       ),
+  //       SizedBox(
+  //         width: 10,
+  //       )
+  //     ],
+  //   );
+  // });
+
+  final controller = PageController(initialPage: 0);
+
+  int intialpage = 0;
+  List<Widget> page = [
+    SecondOnbording(),
+    FirstOnbording(),
+    ThirdOnbording(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -20,59 +53,65 @@ class BoardingFirst extends StatelessWidget {
         child: Column(
             // mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                height: height * .5,
-                width: width * 4,
-                child: Image.asset(
-                  AppImages.bordingfirst,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: TextWidget(
-                  text: "firstBoarding".tr,
-                  size: 50,
-                  color: AppColor.whiteColor,
-                  weight: FontWeight.bold,
-                ),
-              ),
-              // ignore: prefer_const_constructors
-              30.ph,
-              Align(
-                alignment: Alignment.centerLeft,
-                child: TextWidget(
-                  text: "Fbordingbase".tr,
-                  size: 20,
-                  color: AppColor.greyColor,
-                ),
-              ),
               Expanded(
-                child: ListView.builder(
-                  itemCount: 3,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return SizedBox(
-                      child: Row(
-                        children: const [
-                          CircleAvatar(
+                child: PageView(
+                  allowImplicitScrolling: false,
+                  controller: controller,
+                  pageSnapping: false,
+                  children: page,
+                  onPageChanged: (value) {
+                    setState(() {
+                      intialpage = value;
+                    });
+                  },
+                ),
+              ),
+              // 30.ph,
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: myList,
+              // ),
+              50.ph,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  for (int i = 0; i < 3; i++)
+                    if (i == intialpage)
+                      Row(
+                        children: [
+                          10.pw,
+                          const CircleAvatar(
+                            radius: 10,
+                            backgroundColor: AppColor.coolColor,
+                          ),
+                        ],
+                      )
+                    else
+                      Row(
+                        children: [
+                          10.pw,
+                          const CircleAvatar(
                             radius: 10,
                             backgroundColor: AppColor.greyColor,
                           ),
-                          SizedBox(
-                            width: 10,
-                          )
                         ],
-                      ),
-                    );
-                  },
-                ),
+                      )
+                ],
+              ),
+              70.ph,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [],
               ),
               RoundButton(
                 height: 50,
                 width: 250,
                 title: "Next Step",
-                onPres: () {},
+                onPres: () {
+                  setState(() {
+                    intialpage++;
+                  });
+                },
               )
             ]),
       ),
