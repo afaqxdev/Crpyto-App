@@ -11,7 +11,7 @@ class Languages extends Translations {
           'SecondBoarding': 'Receive and\nSend Money\nto Friends.',
           'Sbordingbase':
               'There are 10+ best sequrity service and smart way\nto eaming money from trading for you.',
-          "ThirdBoarding": 'Your Safety is Our\nTop Priority',
+          "ThirdBoarding": 'Your Safety is \nOur Top \nPriority',
           'Tbordingbase':
               "Get rid of your debt monthly debt payments are the\nbiggest obstacle",
         },

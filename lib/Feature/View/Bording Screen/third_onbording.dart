@@ -1,28 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:get/get.dart';
 
 import '../../../Core/Resources/Component/text_widget.dart';
 import '../../../Core/Resources/color/app_color.dart';
-import '../../../Core/Resources/images/images_link.dart';
 
-class ThirdOnbording extends StatelessWidget {
-  const ThirdOnbording({super.key});
+class CustomOnbording extends StatelessWidget {
+  final String image;
+  final String title;
+  final String subtitle;
+  const CustomOnbording(
+      {required this.image,
+      required this.title,
+      required this.subtitle,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Image.asset(
-          AppImages.bordingfirst,
+          image,
           height: 400,
           width: 600,
         ),
         Align(
           alignment: Alignment.centerLeft,
           child: TextWidget(
-            text: "firstBoarding".tr,
+            text: title,
             size: 50,
             color: AppColor.whiteColor,
             weight: FontWeight.bold,
@@ -33,7 +36,7 @@ class ThirdOnbording extends StatelessWidget {
         Align(
           alignment: Alignment.centerLeft,
           child: TextWidget(
-            text: "Fbordingbase".tr,
+            text: subtitle,
             size: 20,
             color: AppColor.greyColor,
           ),

@@ -46,6 +46,7 @@ dependencies:
   build_runner: ^2.3.3
   get: ^4.6.5
   intro_slider: ^4.2.0
+  smooth_page_indicator: ^1.0.1
 
 
 dev_dependencies:
