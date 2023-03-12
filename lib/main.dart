@@ -12,6 +12,7 @@ import 'package:provider/provider.dart';
 import 'Core/Resources/Languages/languages.dart';
 import 'Core/Routes/routes.dart';
 import 'Feature/View/Bording Screen/bording_first.dart';
+import 'Feature/View/Pin Code/pin_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,8 +47,9 @@ class MyApp extends StatelessWidget {
           translations: Languages(),
           locale: const Locale('en', 'Us'),
           darkTheme: darhTheme,
-          initialRoute: RoutesName.splashScreen,
-          onGenerateRoute: Routes.generateRoute,
+          home: PinScreen(),
+          // initialRoute: RoutesName.splashScreen,
+          // onGenerateRoute: Routes.generateRoute,
         );
       }),
     );

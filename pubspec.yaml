@@ -47,6 +47,7 @@ dependencies:
   get: ^4.6.5
   intro_slider: ^4.2.0
   smooth_page_indicator: ^1.0.1
+  pin_code_fields: ^7.4.0
 
 
 dev_dependencies:

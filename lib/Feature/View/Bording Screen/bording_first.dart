@@ -95,7 +95,7 @@ class _BoardingFirstState extends State<BoardingFirst> {
                   controller.nextPage(
                       duration: const Duration(seconds: 1),
                       curve: Curves.decelerate);
-                  if (value.intialpage == 2) {
+                  if (value.intialpage == 3) {
                     controller.dispose();
                   }
                 },
