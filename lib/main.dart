@@ -1,3 +1,4 @@
+import 'package:cryptotracker/Core/Providers/onbording_provider.dart';
 import 'package:cryptotracker/Core/Routes/routes_name.dart';
 import 'package:cryptotracker/Core/Resources/Theme%20Changer/Themes.dart';
 import 'package:cryptotracker/Core/Shared%20Preferences/local_storage.dart';
@@ -10,6 +11,7 @@ import 'package:provider/provider.dart';
 
 import 'Core/Resources/Languages/languages.dart';
 import 'Core/Routes/routes.dart';
+import 'Feature/View/Bording Screen/bording_first.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,6 +36,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<ThemeProvider>(
           create: (context) => ThemeProvider(theme),
         ),
+        ChangeNotifierProvider(create: (context) => OnbordingProvider()),
       ],
       child: Consumer<ThemeProvider>(builder: (contex, themeProvider, child) {
         return GetMaterialApp(

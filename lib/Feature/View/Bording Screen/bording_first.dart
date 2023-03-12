@@ -1,13 +1,14 @@
 // ignore: prefer_const_constructors
 // ignore_for_file: unused_local_variable, must_be_immutable
 
+import 'package:cryptotracker/Core/Providers/onbording_provider.dart';
 import 'package:cryptotracker/Core/Resources/Component/round_button.dart';
 import 'package:cryptotracker/Core/Resources/color/app_color.dart';
 import 'package:cryptotracker/Core/Resources/images/images_link.dart';
 import 'package:cryptotracker/Feature/View/Bording%20Screen/third_onbording.dart';
-import 'package:custom_refresh_indicator/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class BoardingFirst extends StatefulWidget {
@@ -32,30 +33,13 @@ class _BoardingFirstState extends State<BoardingFirst> {
     );
   });
 
-  final controller = PageController(initialPage: 0, keepPage: true);
+  final controller = PageController(initialPage: 0);
 
-  int intialpage = 0;
-  List<Widget> page = [
-    CustomOnbording(
-      title: 'firstBoarding'.tr,
-      subtitle: 'Fbordingbase'.tr,
-      image: AppImages.bordingfirst,
-    ),
-    CustomOnbording(
-      title: 'SecondBoarding'.tr,
-      subtitle: 'Sbordingbase'.tr,
-      image: AppImages.bordingSecond,
-    ),
-    CustomOnbording(
-      title: 'ThirdBoarding'.tr,
-      subtitle: 'Tbordingbase'.tr,
-      image: AppImages.bordingthird,
-    ),
-  ];
   @override
   Widget build(BuildContext context) {
     final double height = Get.height;
     final double width = Get.width;
+    final provider = Provider.of<OnbordingProvider>(context);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
@@ -63,54 +47,34 @@ class _BoardingFirstState extends State<BoardingFirst> {
           Expanded(
             child: PageView(
               controller: controller,
-              children: page,
+              children: [
+                CustomOnbording(
+                  title: 'firstBoarding'.tr,
+                  subtitle: 'Fbordingbase'.tr,
+                  image: AppImages.bordingfirst,
+                ),
+                CustomOnbording(
+                  title: 'SecondBoarding'.tr,
+                  subtitle: 'Sbordingbase'.tr,
+                  image: AppImages.bordingSecond,
+                ),
+                CustomOnbording(
+                  title: 'ThirdBoarding'.tr,
+                  subtitle: 'Tbordingbase'.tr,
+                  image: AppImages.bordingthird,
+                ),
+              ],
               onPageChanged: (value) {
-                setState(() {
-                  intialpage++;
-                });
+                provider.increatment();
               },
             ),
           ),
           50.ph,
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     for (int i = 0; i < 3; i++)
-          //       if (i == intialpage)
-          //         Row(
-          //           children: [
-          //             const CircleAvatar(
-          //               radius: 10,
-          //               backgroundColor: AppColor.coolColor,
-          //             ),
-          //             10.pw,
-          //           ],
-          //         )
-          //       else
-          //         Row(
-          //           children: [
-          //             const CircleAvatar(
-          //               radius: 10,
-          //               backgroundColor: AppColor.greyColor,
-          //             ),
-          //             10.pw,
-          //           ],
-          //         )
-          //   ],
-          // ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: myList,
-          // ),
           SmoothPageIndicator(
               controller: controller,
               count: myList.length,
               effect: const JumpingDotEffect(
-                // activeStrokeWidth: 2.6,
-                // activeDotScale: 1.3,
-                // maxVisibleDots: 5,
-
-                radius: 10,
+                radius: 7,
                 paintStyle: PaintingStyle.fill,
                 spacing: 10,
                 activeDotColor: AppColor.coolColor,
@@ -118,14 +82,24 @@ class _BoardingFirstState extends State<BoardingFirst> {
                 dotWidth: 17,
               )),
           70.ph,
-          RoundButton(
-            height: 50,
-            width: 250,
-            title: "Next Step",
-            onPres: () {
-              setState(() {
-                Get.to(page);
-              });
+          Consumer<OnbordingProvider>(
+            builder: (context, value, child) {
+              return RoundButton(
+                height: 50,
+                width: 250,
+                title: value.intialpage == 2
+                    ? "📩  Continue With Email"
+                    : "Next Step",
+                onPres: () {
+                  value.increatment();
+                  controller.nextPage(
+                      duration: const Duration(seconds: 1),
+                      curve: Curves.decelerate);
+                  if (value.intialpage == 2) {
+                    controller.dispose();
+                  }
+                },
+              );
             },
           )
         ]),

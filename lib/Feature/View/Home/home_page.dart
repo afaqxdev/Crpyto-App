@@ -46,10 +46,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 const EdgeInsets.only(left: 0, bottom: 0, right: 25, top: 5),
             iconSize: 30,
             icon: (themeProvider.themeMode == ThemeMode.light)
+                // ignore: prefer_const_constructors
                 ? Icon(
                     Icons.light_mode,
                     color: AppColor.coolColor,
                   )
+                // ignore: prefer_const_constructors
                 : Icon(
                     Icons.dark_mode,
                     color: AppColor.coolColor,

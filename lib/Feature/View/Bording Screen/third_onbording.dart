@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
+import '../../../Core/Providers/theme_provider.dart';
 import '../../../Core/Resources/Component/text_widget.dart';
 import '../../../Core/Resources/color/app_color.dart';
 
@@ -15,6 +18,7 @@ class CustomOnbording extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<ThemeProvider>(context);
     return Column(
       children: [
         Image.asset(
@@ -27,7 +31,9 @@ class CustomOnbording extends StatelessWidget {
           child: TextWidget(
             text: title,
             size: 50,
-            color: AppColor.whiteColor,
+            color: (provider.themeMode == ThemeMode.light)
+                ? AppColor.blackColor
+                : AppColor.whiteColor,
             weight: FontWeight.bold,
           ),
         ),
