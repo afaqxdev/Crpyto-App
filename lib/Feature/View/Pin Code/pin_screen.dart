@@ -14,8 +14,9 @@ class PinScreen extends StatefulWidget {
 String? pincode;
 
 class _PinScreenState extends State<PinScreen> {
-  TextEditingController pinEditingController =
-      TextEditingController(text: pincode);
+  TextEditingController pinEditingController = TextEditingController(
+    text: pincode,
+  );
 
   @override
   Widget build(BuildContext context) {
