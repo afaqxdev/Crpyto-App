@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../Core/Models/cryptocurrenct.dart';
-import '../../../../Core/Providers/market_provider.dart';
+import '../../../Services/Market/market_provider.dart';
 import '../Crypto List/cryptoListTile.dart';
 
 class Markert extends StatefulWidget {

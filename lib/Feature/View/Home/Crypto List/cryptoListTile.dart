@@ -1,13 +1,13 @@
 // ignore_for_file: file_names
 
 import 'package:cryptotracker/Core/Models/cryptocurrenct.dart';
-import 'package:cryptotracker/Core/Providers/market_provider.dart';
+import 'package:cryptotracker/Feature/Services/Market/market_provider.dart';
 import 'package:cryptotracker/Core/Resources/color/app_color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../Core/Providers/theme_provider.dart';
+import '../../../Services/Theme Changer/theme_provider.dart';
 import '../../Detail/details_page.dart';
 
 class CryptoListTile extends StatelessWidget {

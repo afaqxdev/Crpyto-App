@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../../../Core/Models/cryptocurrenct.dart';
-import '../../../Core/Providers/market_provider.dart';
+import '../../Services/Market/market_provider.dart';
 import '../../../Core/Shared Preferences/prices.dart';
 
 class GraphDetails extends StatefulWidget {

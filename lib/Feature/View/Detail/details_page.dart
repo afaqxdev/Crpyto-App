@@ -1,7 +1,7 @@
 // ignore_for_file: unused_local_variable, avoid_unnecessary_containers
 
 import 'package:cryptotracker/Core/Models/cryptocurrenct.dart';
-import 'package:cryptotracker/Core/Providers/market_provider.dart';
+import 'package:cryptotracker/Feature/Services/Market/market_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

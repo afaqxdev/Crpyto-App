@@ -1,11 +1,13 @@
 // ignore: prefer_const_constructors
 // ignore_for_file: unused_local_variable, must_be_immutable
 
-import 'package:cryptotracker/Core/Providers/onbording_provider.dart';
+import 'package:cryptotracker/Core/Routes/routes.dart';
+import 'package:cryptotracker/Core/Routes/routes_name.dart';
+import 'package:cryptotracker/Feature/Services/Onbording/onbording_provider.dart';
 import 'package:cryptotracker/Core/Resources/Component/round_button.dart';
 import 'package:cryptotracker/Core/Resources/color/app_color.dart';
 import 'package:cryptotracker/Core/Resources/images/images_link.dart';
-import 'package:cryptotracker/Feature/View/Bording%20Screen/third_onbording.dart';
+import 'package:cryptotracker/Feature/View/Bording%20Screen/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -64,9 +66,7 @@ class _BoardingFirstState extends State<BoardingFirst> {
                   image: AppImages.bordingthird,
                 ),
               ],
-              onPageChanged: (value) {
-                provider.increatment();
-              },
+              onPageChanged: (value) {},
             ),
           ),
           50.ph,
@@ -87,15 +87,16 @@ class _BoardingFirstState extends State<BoardingFirst> {
               return RoundButton(
                 height: 50,
                 width: 250,
-                title: value.intialpage == 2
-                    ? "📩  Continue With Email"
-                    : "Next Step",
+                title: value.intialpage == 2 ? "Set Pin Code" : "Next Step",
                 onPres: () {
                   value.increatment();
+                  print(value.intialpage);
                   controller.nextPage(
                       duration: const Duration(seconds: 1),
                       curve: Curves.decelerate);
                   if (value.intialpage == 3) {
+                    Navigator.pushReplacementNamed(
+                        context, RoutesName.pinSceen);
                     controller.dispose();
                   }
                 },

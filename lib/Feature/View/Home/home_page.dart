@@ -1,6 +1,6 @@
 import 'package:cryptotracker/Core/Resources/color/app_color.dart';
 import 'package:cryptotracker/Feature/View/Home/Maket/markets.dart';
-import 'package:cryptotracker/Core/Providers/theme_provider.dart';
+import 'package:cryptotracker/Feature/Services/Theme%20Changer/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../Favorite/favorites.dart';

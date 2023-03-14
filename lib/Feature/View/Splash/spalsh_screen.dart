@@ -1,4 +1,4 @@
-import 'package:cryptotracker/Feature/Services/splash_services.dart';
+import 'package:cryptotracker/Feature/Services/splash%20Screen/splash_services.dart';
 import 'package:flutter/material.dart';
 
 import '../../../Core/Resources/images/images_link.dart';

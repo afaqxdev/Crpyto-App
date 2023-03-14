@@ -7,8 +7,8 @@ import 'package:cryptotracker/Core/Models/cryptocurrenct.dart';
 import 'package:cryptotracker/Core/Shared%20Preferences/local_storage.dart';
 import 'package:flutter/widgets.dart';
 
-import '../Api Call/api.dart';
-import '../Shared Preferences/prices.dart';
+import '../../../Core/Api Call/api.dart';
+import '../../../Core/Shared Preferences/prices.dart';
 
 class MarketProvider with ChangeNotifier {
   bool isloading = true;

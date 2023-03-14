@@ -1,6 +1,6 @@
 import 'package:cryptotracker/Core/Models/cryptocurrenct.dart';
 import 'package:cryptotracker/Feature/View/Home/Crypto%20List/cryptoListTile.dart';
-import 'package:cryptotracker/Core/Providers/market_provider.dart';
+import 'package:cryptotracker/Feature/Services/Market/market_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

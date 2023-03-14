@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-import '../../../Core/Providers/theme_provider.dart';
+import '../../Services/Theme Changer/theme_provider.dart';
 import '../../../Core/Resources/Component/text_widget.dart';
 import '../../../Core/Resources/color/app_color.dart';
 
