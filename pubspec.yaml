@@ -47,6 +47,7 @@ dependencies:
   get: ^4.6.5
   smooth_page_indicator: ^1.0.1
   quickalert: ^1.0.1
+  local_auth:
 
 
 dev_dependencies:

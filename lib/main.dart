@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 import 'Core/Resources/Languages/languages.dart';
 import 'Core/Routes/routes.dart';
 import 'Core/Routes/routes_name.dart';
+import 'Feature/View/Finger Print/finger_print.dart';
 import 'Feature/View/Pin Code/pin_screen.dart';
 
 void main() async {
@@ -46,7 +47,7 @@ class MyApp extends StatelessWidget {
           translations: Languages(),
           locale: const Locale('en', 'Us'),
           darkTheme: darhTheme,
-          // home: PinScreen(),
+          // home: FingerPrint(),
           initialRoute: RoutesName.splashScreen,
           onGenerateRoute: Routes.generateRoute,
         );

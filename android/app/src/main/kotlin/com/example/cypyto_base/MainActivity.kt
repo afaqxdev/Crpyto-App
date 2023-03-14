@@ -1,6 +1,6 @@
 package com.example.cypyto_base
 
-import io.flutter.embedding.android.FlutterActivity
 
-class MainActivity: FlutterActivity() {
-}
+import io.flutter.embedding.android.FlutterFragmentActivity
+  class MainActivity: FlutterFragmentActivity() {
+ }

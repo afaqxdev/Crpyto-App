@@ -1,11 +1,13 @@
 import 'package:cryptotracker/Core/Resources/Component/text_widget.dart';
 import 'package:cryptotracker/Core/Resources/color/app_color.dart';
+import 'package:cryptotracker/Core/Routes/routes_name.dart';
 import 'package:cryptotracker/Feature/Services/Pin%20Screen/pin_provider.dart';
 import 'package:cryptotracker/Feature/View/Pin%20Code/res/btn.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
+import '../../Services/FingerPrint Services/finger_print.dart';
 import 'dot_field.dart';
 
 class PinScreen extends StatefulWidget {
@@ -143,7 +145,14 @@ class _PinScreenState extends State<PinScreen> {
                     pinValue.addDigit(0, context);
                   }),
                   .12.pw,
-                  btnFingerprint(() {})
+                  btnFingerprint(() async {
+                    final iAuthenticated = await LocalAuth.authenticate();
+                    if (iAuthenticated) {
+                      // ignore: use_build_context_synchronously
+                      Navigator.pushReplacementNamed(
+                          context, RoutesName.homeScreen);
+                    }
+                  })
                 ]),
             .16.ph,
             Align(
